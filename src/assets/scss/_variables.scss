@@ -1,4 +1,17 @@
 :root {
-  --nav-width: 320px;
+  // Main
+  --main-bg-color: #f6f7fa;
+
+  --text-color-primary: #fff;
+
+  --hover-transition-time: .1s;
+
+  // Header
   --header-height: 120px;
+
+  // Navigation
+  --nav-width: 320px;
+  --nav-bg-color: #0e1a35;
+  --nav-bg-color-hover: #122143;
+  --nav-font-size: 24px;
 }
