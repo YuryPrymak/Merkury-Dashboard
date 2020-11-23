@@ -11,7 +11,22 @@ module.exports = {
     parser: 'babel-eslint',
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'max-len': ['error', {
+      'code': 110,
+      'ignoreTemplateLiterals': true,
+      'ignoreUrls': true
+    }],
+    'comma-dangle': 'off',
+    'arrow-parens': 'off',
+    'guard-for-in': 'off',
+    'no-restricted-syntax': 'off',
+    'no-plusplus': 'off',
+    'keyword-spacing': 'off',
+    'class-methods-use-this': 'off',
+    'no-param-reassign': 'off',
+    'func-names': 'off',
+    'space-before-function-paren': 'off',
+    'no-unused-expressions': 'off',
+    'no-useless-constructor': 'off'
   },
 };
