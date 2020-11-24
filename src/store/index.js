@@ -5,6 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    user: {
+      navMin: false
+    },
     nav: [
       {
         url: '/',
@@ -41,11 +44,20 @@ export default new Vuex.Store({
   getters: {
     nav(state) {
       return state.nav;
+    },
+    navMin(state) {
+      return state.user.navMin;
     }
   },
   mutations: {
+    navToggle(state) {
+      state.user.navMin = !state.user.navMin;
+    }
   },
   actions: {
+    navToggle(store) {
+      store.commit('navToggle');
+    }
   },
   modules: {
   },

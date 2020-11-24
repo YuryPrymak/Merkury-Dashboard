@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{'nav-min': navMin}">
     <app-nav></app-nav>
     <app-header></app-header>
     <router-view class="main"></router-view>
@@ -9,11 +9,17 @@
 <script>
 import AppHeader from '@/components/header/Header.vue';
 import AppNav from '@/components/nav/Nav.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
     AppHeader,
     AppNav
+  },
+  computed: {
+    ...mapGetters([
+      'navMin'
+    ])
   }
 };
 </script>

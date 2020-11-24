@@ -1,6 +1,10 @@
 <template>
   <header class="header">
-    <button class="btn-nav-toggle btn-nav-toggle-close">
+    <button
+      @click="navToggle"
+      class="btn-nav-toggle"
+      :class="navState"
+    >
       <svg>
         <rect id="rect-1" width="100%" height="20%" y="0%"/>
         <rect id="rect-2" width="100%" height="20%" y="40%"/>
@@ -24,7 +28,8 @@
     <button
       @click="settingsMenuToggle"
       ref="btnSettingsMenuToggle"
-      class="btn-user-settings btn-user-settings-open"
+      class="btn-user-settings"
+      :class="userSettingsMenuState"
     >
       <img src="@/assets/img/header/default-user-photo.png" alt="Person" class="user-photo">
     </button>
@@ -42,6 +47,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Header',
@@ -50,7 +56,27 @@ export default {
       showSettingsMenu: false
     };
   },
+  computed: {
+    ...mapGetters([
+      'navMin'
+    ]),
+    navState() {
+      return {
+        'btn-nav-toggle-close': !this.navMin,
+        'btn-nav-toggle-open': this.navMin
+      };
+    },
+    userSettingsMenuState() {
+      return {
+        'btn-user-settings-close': this.showSettingsMenu,
+        'btn-user-settings-open': !this.showSettingsMenu
+      };
+    }
+  },
   methods: {
+    ...mapActions([
+      'navToggle'
+    ]),
     settingsMenuToggle() {
       this.showSettingsMenu = !this.showSettingsMenu;
     },

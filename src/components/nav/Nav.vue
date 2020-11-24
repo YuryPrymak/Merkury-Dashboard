@@ -1,15 +1,20 @@
 <template>
   <div class="wrapper">
-    <router-link to="/" tag="a" class="btn-home">Merkury</router-link>
+    <router-link to="/" class="btn-home">
+      <img src="../../assets/img/nav/logo.png" alt="Logo" class="logo">
+      <span class="name">Merkury</span>
+    </router-link>
     <nav class="nav">
       <ul>
         <li v-for="link in nav" :key="link.title">
-          <img
-            :src="require(`../../assets/img/${link.iconPath}`)"
-            alt="Icon"
-            class="icon"
-          >
-          <router-link :to="link.url" exact class="link">{{ link.title }}</router-link>
+          <router-link :to="link.url" exact class="link">
+            <img
+              :src="require(`../../assets/img/${link.iconPath}`)"
+              alt="Icon"
+              class="icon"
+            >
+            <span class="title">{{ link.title }}</span>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -50,14 +55,12 @@ export default {
       font-size: 30px;
       line-height: var(--header-height);
 
-      &::before {
-        content: '';
+      .logo {
         width: 52px;
         height: 52px;
         position: absolute;
         top: 50%;
         left: 40px;
-        background-image: url('../../assets/img/nav/logo.png');
         transform: translateY(-50%);
       }
     }
@@ -94,16 +97,16 @@ export default {
             font-weight: 500;
             transition: background-color var(--hover-transition-time) ease-in-out;
 
+            .icon {
+              position: absolute;
+              top: 50%;
+              right: 245px;
+              transform: translateY(-50%);
+            }
+
             &:hover {
               background-color: var(--nav-bg-color-hover);
             }
-          }
-
-          .icon {
-            position: absolute;
-            top: 50%;
-            right: 245px;
-            transform: translateY(-50%);
           }
 
           .router-link-active {
@@ -119,6 +122,42 @@ export default {
               background-color: #5584ff;
               opacity: 0;
               animation: slide .3s ease-out forwards;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .nav-min {
+    .wrapper {
+      .btn-home {
+        padding-left: 0px;
+
+        .logo {
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+
+        .name {
+          display: none;
+        }
+      }
+
+      .nav {
+        ul {
+          li {
+            .link {
+              .icon {
+                top: 50%;
+                right: 0;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+              }
+
+              .title {
+                display: none;
+              }
             }
           }
         }
