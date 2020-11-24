@@ -14,7 +14,8 @@ module.exports = {
     'max-len': ['error', {
       'code': 110,
       'ignoreTemplateLiterals': true,
-      'ignoreUrls': true
+      'ignoreUrls': true,
+      'ignorePattern': 'd="*?"'
     }],
     'comma-dangle': 'off',
     'arrow-parens': 'off',

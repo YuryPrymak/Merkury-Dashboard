@@ -4,14 +4,22 @@
 
   --text-color-primary: #fff;
 
+  --controls-bg-color: #0e1a35;
+  --controls-bg-color-hover: #5584ff;
+
   --hover-transition-time: .1s;
 
   // Header
   --header-height: 120px;
+  --header-bg-color: #fff;
 
   // Navigation
   --nav-width: 320px;
   --nav-bg-color: #0e1a35;
   --nav-bg-color-hover: #122143;
   --nav-font-size: 24px;
+
+  .nav-min {
+    --nav-width: 100px;
+  }
 }

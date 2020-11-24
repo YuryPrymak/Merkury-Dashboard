@@ -38,6 +38,11 @@ export default {
     text-decoration: none;
   }
 
+  button {
+    border: none;
+    cursor: pointer;
+  }
+
   .main {
     width: calc(100vw - var(--nav-width));
     margin: var(--header-height) 0 0 var(--nav-width);
