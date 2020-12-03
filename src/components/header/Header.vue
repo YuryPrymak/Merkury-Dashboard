@@ -102,6 +102,7 @@ export default {
     padding: 0 45px;
     border-bottom: 1px solid #d4d9e3;
     background-color: var(--header-bg-color);
+    z-index: var(--header-z-index);
 
     .btn-nav-toggle {
       width: 25px;
