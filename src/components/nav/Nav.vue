@@ -36,6 +36,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_mixins.scss';
 
   .wrapper {
     width: var(--nav-width);
@@ -70,15 +71,7 @@ export default {
         height: calc(100vh - var(--header-height));
         overflow-y: auto;
 
-        &::-webkit-scrollbar {
-          width: 5px;
-          background-color: #0d172e;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          border-radius: 2px;
-          background-color: #5584ff;
-        }
+        @include scrollbar;
 
         li {
           position: relative;
