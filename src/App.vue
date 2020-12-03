@@ -2,7 +2,7 @@
   <div id="app" :class="{'nav-min': navMin}">
     <app-nav></app-nav>
     <app-header></app-header>
-    <router-view class="main"></router-view>
+    <router-view class="main-wrapper"></router-view>
   </div>
 </template>
 
@@ -49,8 +49,8 @@ export default {
     cursor: pointer;
   }
 
-  .main {
-    width: calc(100vw - var(--nav-width));
+  .main-wrapper {
+    max-width: calc(100vw - var(--nav-width));
     margin: var(--header-height) 0 0 var(--nav-width);
   }
 </style>
