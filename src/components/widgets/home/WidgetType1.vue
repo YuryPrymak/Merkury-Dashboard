@@ -1,6 +1,9 @@
 <template>
   <div class="widget-type-1">
-    <widget-header-type-1 :header-data="headerData"></widget-header-type-1>
+    <widget-header-type-1
+      :header-data="headerData"
+      @change-period="changePeriod"
+    ></widget-header-type-1>
     <doughnut-chart :chart-data="chartData" class="doughnut-chart"></doughnut-chart>
     <div class="total-number-of-sales">
       <p class="number">{{ totalNumberOfSales }}</p>
@@ -51,6 +54,11 @@ export default {
     colors() {
       return this.widgetData.data.map(info => info.color);
     }
+  },
+  methods: {
+    changePeriod(period) {
+      this.$emit('change-period', period);
+    }
   }
 };
 </script>
@@ -60,8 +68,6 @@ export default {
 
   .widget-type-1 {
     position: relative;
-    background-color: var(--widget-bg-color);
-    border: 1px solid #d4d9e3;
 
     .doughnut-chart {
       margin: 30px;

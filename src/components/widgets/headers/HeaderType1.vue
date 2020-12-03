@@ -21,7 +21,7 @@
         class="list-of-time-periods"
       >
         <li v-for="period in headerData.timePeriods" :key="period">
-          <button @click="widgetSalesChangeDisplayedPeriod(period)" class="btn-period">{{ period}}</button>
+          <button @click="changePeriod(period)" class="btn-period">{{ period}}</button>
         </li>
       </ul>
     </div>
@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'HeaderType1',
   props: ['headerData'],
@@ -40,14 +38,14 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      'widgetSalesChangeDisplayedPeriod'
-    ]),
     listOfTimePeriodsToggle() {
       this.showListOfTimePeriods = !this.showListOfTimePeriods;
     },
     listOfTimePeriodsClose() {
       this.showListOfTimePeriods = false;
+    },
+    changePeriod(period) {
+      this.$emit('change-period', period);
     }
   }
 };
