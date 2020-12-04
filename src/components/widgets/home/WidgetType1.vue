@@ -17,7 +17,7 @@ import DoughnutChart from '@/components/charts/DoughnutChart.vue';
 import WidgetHeaderType1 from '@/components/widgets/headers/HeaderType1.vue';
 
 export default {
-  name: 'Sales',
+  name: 'WidgetType1',
   props: ['widgetData'],
   components: {
     WidgetHeaderType1,
