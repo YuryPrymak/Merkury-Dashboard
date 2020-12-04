@@ -28,6 +28,7 @@ module.exports = {
     'func-names': 'off',
     'space-before-function-paren': 'off',
     'no-unused-expressions': 'off',
-    'no-useless-constructor': 'off'
+    'no-useless-constructor': 'off',
+    'no-unneeded-ternary': 'off'
   },
 };

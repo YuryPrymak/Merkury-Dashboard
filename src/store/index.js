@@ -146,6 +146,41 @@ export default new Vuex.Store({
             ]
           }
         }
+      },
+      tasks: {
+        title: 'Tasks',
+        data: [
+          {
+            title: 'New Website',
+            time: '5 days left',
+            timeIsUp: false,
+            id: 35383
+          },
+          {
+            title: 'Free business template',
+            time: '1 day delays',
+            timeIsUp: true,
+            id: 98855
+          },
+          {
+            title: 'New logo',
+            time: '10 days left',
+            timeIsUp: false,
+            id: 57385
+          },
+          {
+            title: 'Optimize site',
+            time: '1 day left',
+            timeIsUp: false,
+            id: 97530
+          },
+          {
+            title: 'Check statistics',
+            time: '3 days delays',
+            timeIsUp: true,
+            id: 29538
+          }
+        ]
       }
     }
   },
@@ -161,6 +196,9 @@ export default new Vuex.Store({
     },
     widgetUserActivityData(state) {
       return state.widgets.userActivity;
+    },
+    widgetTasksData(state) {
+      return state.widgets.tasks;
     }
   },
   mutations: {
@@ -172,6 +210,10 @@ export default new Vuex.Store({
     },
     widgetUserActivityChangeDisplayedPeriod(state, payload) {
       state.widgets.userActivity.displayedPeriod = payload;
+    },
+    widgetTasksRemoveTask(state, payload) {
+      const index = state.widgets.tasks.data.map(task => task.id).indexOf(payload);
+      state.widgets.tasks.data.splice(index, 1);
     }
   },
   actions: {
@@ -183,6 +225,9 @@ export default new Vuex.Store({
     },
     widgetUserActivityChangeDisplayedPeriod(store, payload) {
       store.commit('widgetUserActivityChangeDisplayedPeriod', payload);
+    },
+    widgetTasksRemoveTask(store, payload) {
+      store.commit('widgetTasksRemoveTask', payload);
     }
   },
   modules: {

@@ -10,24 +10,32 @@
       @change-period="widgetUserActivityChangeDisplayedPeriod"
       class="widget widget-user-activity">
     </user-activity>
+    <tasks
+      :widget-data="widgetTasksData"
+      class="widget widget-tasks">
+    </tasks>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+
 import WidgetSales from '@/components/widgets/home/WidgetType1.vue';
 import UserActivity from '@/components/widgets/home/WidgetType2.vue';
+import Tasks from '@/components/widgets/home/tasks/WidgetTasks.vue';
 
 export default {
   name: 'Home',
   components: {
     WidgetSales,
-    UserActivity
+    UserActivity,
+    Tasks
   },
   computed: {
     ...mapGetters([
       'widgetSalesData',
-      'widgetUserActivityData'
+      'widgetUserActivityData',
+      'widgetTasksData'
     ])
   },
   methods: {
@@ -54,10 +62,18 @@ export default {
     .widget-sales {
       max-width: calc(40% - 40px);
       margin-right: 40px;
+
+      display: none;
     }
 
     .widget-user-activity {
       max-width: 60%;
+
+      display: none;
+    }
+
+    .widget-tasks {
+      max-width: 500px;
     }
   }
 </style>
