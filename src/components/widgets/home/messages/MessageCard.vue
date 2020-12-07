@@ -1,7 +1,7 @@
 <template>
   <li class="card" :class="unreadMessage">
     <div class="photo">
-      <img :src="require(`@/assets/img/${userPhoto}`)" alt="Person">
+      <img :src="require(`@/assets/img/${messageData.userPhoto}`)" alt="Person">
     </div>
     <div class="message-info">
       <div class="header">
@@ -31,9 +31,6 @@ export default {
       return {
         'unread-message': this.messageData.haveNewMessages
       };
-    },
-    userPhoto() {
-      return this.messageData.photo;
     },
     messageText() {
       const maxChars = 40;

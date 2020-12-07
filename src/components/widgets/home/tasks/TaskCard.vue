@@ -31,7 +31,7 @@
       >
         <li>
           <button
-            @click="widgetTasksRemoveTask(taskData.id)"
+            @click="removeTask(taskData.id)"
             class="btn-remove-card"
           >
             Remove
@@ -42,8 +42,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'TaskCard',
   props: ['taskData'],
@@ -63,9 +61,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'widgetTasksRemoveTask'
-    ]),
+    removeTask(taskId) {
+      this.$emit('remove-task', taskId);
+    },
     cardOptionsToggle() {
       this.showCardOptions = !this.showCardOptions;
     },

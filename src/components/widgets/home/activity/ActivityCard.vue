@@ -1,7 +1,7 @@
 <template>
   <li class="card">
     <div class="photo">
-      <img :src="require(`@/assets/img/${userPhoto}`)" alt="Person">
+      <img :src="require(`@/assets/img/${activityData.userPhoto}`)" alt="Person">
     </div>
     <div class="activity-info">
       <div class="header">
@@ -23,14 +23,7 @@
 <script>
 export default {
   name: 'ActivityCard',
-  props: ['activityData'],
-  computed: {
-    userPhoto() {
-      return this.activityData.photo;
-    }
-  },
-  methods: {
-  }
+  props: ['activityData']
 };
 </script>
 

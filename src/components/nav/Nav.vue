@@ -6,7 +6,7 @@
     </router-link>
     <nav class="nav">
       <ul>
-        <li v-for="link in nav" :key="link.title">
+        <li v-for="link in navLinks" :key="link.title">
           <router-link :to="link.url" exact class="link">
             <img
               :src="require(`../../assets/img/${link.iconPath}`)"
@@ -27,8 +27,8 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Nav',
   computed: {
-    ...mapGetters([
-      'nav'
+    ...mapGetters('navigation', [
+      'navLinks'
     ])
   }
 };

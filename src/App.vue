@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{'nav-min': navMin}">
+  <div id="app" :class="{'nav-min': minimizedNavigation}">
     <app-nav></app-nav>
     <app-header></app-header>
     <router-view class="main-wrapper"></router-view>
@@ -17,9 +17,7 @@ export default {
     AppNav
   },
   computed: {
-    ...mapGetters([
-      'navMin'
-    ])
+    ...mapGetters('navigation', { minimizedNavigation: 'minimizedNavigation' }),
   }
 };
 </script>

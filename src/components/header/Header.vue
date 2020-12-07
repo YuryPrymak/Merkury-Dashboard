@@ -57,13 +57,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([
-      'navMin'
-    ]),
+    ...mapGetters('navigation', { minimizedNavigation: 'minimizedNavigation' }),
     navState() {
       return {
-        'btn-nav-toggle-close': !this.navMin,
-        'btn-nav-toggle-open': this.navMin
+        'btn-nav-toggle-close': !this.minimizedNavigation,
+        'btn-nav-toggle-open': this.minimizedNavigation
       };
     },
     userSettingsMenuState() {
@@ -74,9 +72,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'navToggle'
-    ]),
+    ...mapActions('navigation', { navToggle: 'navToggle' }),
     settingsMenuToggle() {
       this.showSettingsMenu = !this.showSettingsMenu;
     },

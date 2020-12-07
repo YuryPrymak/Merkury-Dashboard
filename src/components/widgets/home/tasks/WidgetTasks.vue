@@ -8,6 +8,7 @@
           v-for="data in widgetData.data"
           :key="data.title"
           :task-data="data"
+          @remove-task="removeTask"
           class="task"
         ></task-card>
       </transition-group>
@@ -38,6 +39,11 @@ export default {
     },
     isHaveTasks() {
       return !this.widgetData.data.length;
+    }
+  },
+  methods: {
+    removeTask(taskId) {
+      this.$emit('remove-task', taskId);
     }
   }
 };

@@ -12,6 +12,7 @@
     </widget-user-activity>
     <widget-tasks
       :widget-data="widgetTasksData"
+      @remove-task="widgetTasksRemoveTask"
       class="widget widget-tasks">
     </widget-tasks>
     <widget-messages
@@ -44,19 +45,16 @@ export default {
     WidgetActivity
   },
   computed: {
-    ...mapGetters([
-      'widgetSalesData',
-      'widgetUserActivityData',
-      'widgetTasksData',
-      'widgetMessagesData',
-      'widgetActivityData'
-    ])
+    ...mapGetters('widgetSales', { widgetSalesData: 'data' }),
+    ...mapGetters('widgetUserActivity', { widgetUserActivityData: 'data' }),
+    ...mapGetters('widgetTasks', { widgetTasksData: 'data' }),
+    ...mapGetters('widgetMessages', { widgetMessagesData: 'data' }),
+    ...mapGetters('widgetActivity', { widgetActivityData: 'data' })
   },
   methods: {
-    ...mapActions([
-      'widgetSalesChangeDisplayedPeriod',
-      'widgetUserActivityChangeDisplayedPeriod'
-    ]),
+    ...mapActions('widgetSales', { widgetSalesChangeDisplayedPeriod: 'changeDisplayedPeriod' }),
+    ...mapActions('widgetUserActivity', { widgetUserActivityChangeDisplayedPeriod: 'changeDisplayedPeriod' }),
+    ...mapActions('widgetTasks', { widgetTasksRemoveTask: 'removeTask' })
   }
 };
 </script>
@@ -76,30 +74,22 @@ export default {
     .widget-sales {
       max-width: calc(40% - 40px);
       margin-right: 40px;
-
-      display: none;
     }
 
     .widget-user-activity {
-      max-width: 60%;
-
-      display: none;
+      max-width: 300px;
     }
 
     .widget-tasks {
-      max-width: 500px;
-
-      display: none;
+      max-width: 300px;
     }
 
     .widget-messages {
-      max-width: 500px;
-
-      display: none;
+      max-width: 300px;
     }
 
     .widget-activity {
-      max-width: 500px;
+      max-width: 3d00px;
     }
   }
 </style>
