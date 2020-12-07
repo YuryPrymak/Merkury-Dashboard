@@ -18,6 +18,10 @@
       :widget-data="widgetMessagesData"
       class="widget widget-messages">
     </widget-messages>
+    <widget-activity
+      :widget-data="widgetActivityData"
+      class="widget widget-activity">
+    </widget-activity>
   </div>
 </template>
 
@@ -28,6 +32,7 @@ import WidgetSales from '@/components/widgets/home/WidgetType1.vue';
 import WidgetUserActivity from '@/components/widgets/home/WidgetType2.vue';
 import WidgetTasks from '@/components/widgets/home/tasks/WidgetTasks.vue';
 import WidgetMessages from '@/components/widgets/home/messages/WidgetMessages.vue';
+import WidgetActivity from '@/components/widgets/home/activity/WidgetActivity.vue';
 
 export default {
   name: 'Home',
@@ -35,14 +40,16 @@ export default {
     WidgetSales,
     WidgetUserActivity,
     WidgetTasks,
-    WidgetMessages
+    WidgetMessages,
+    WidgetActivity
   },
   computed: {
     ...mapGetters([
       'widgetSalesData',
       'widgetUserActivityData',
       'widgetTasksData',
-      'widgetMessagesData'
+      'widgetMessagesData',
+      'widgetActivityData'
     ])
   },
   methods: {
@@ -86,6 +93,12 @@ export default {
     }
 
     .widget-messages {
+      max-width: 500px;
+
+      display: none;
+    }
+
+    .widget-activity {
       max-width: 500px;
     }
   }
