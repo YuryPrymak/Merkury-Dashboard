@@ -5,15 +5,19 @@
       @change-period="widgetSalesChangeDisplayedPeriod"
       class="widget widget-sales"
     ></widget-sales>
-    <user-activity
+    <widget-user-activity
       :widget-data="widgetUserActivityData"
       @change-period="widgetUserActivityChangeDisplayedPeriod"
       class="widget widget-user-activity">
-    </user-activity>
-    <tasks
+    </widget-user-activity>
+    <widget-tasks
       :widget-data="widgetTasksData"
       class="widget widget-tasks">
-    </tasks>
+    </widget-tasks>
+    <widget-messages
+      :widget-data="widgetMessagesData"
+      class="widget widget-messages">
+    </widget-messages>
   </div>
 </template>
 
@@ -21,21 +25,24 @@
 import { mapGetters, mapActions } from 'vuex';
 
 import WidgetSales from '@/components/widgets/home/WidgetType1.vue';
-import UserActivity from '@/components/widgets/home/WidgetType2.vue';
-import Tasks from '@/components/widgets/home/tasks/WidgetTasks.vue';
+import WidgetUserActivity from '@/components/widgets/home/WidgetType2.vue';
+import WidgetTasks from '@/components/widgets/home/tasks/WidgetTasks.vue';
+import WidgetMessages from '@/components/widgets/home/messages/WidgetMessages.vue';
 
 export default {
   name: 'Home',
   components: {
     WidgetSales,
-    UserActivity,
-    Tasks
+    WidgetUserActivity,
+    WidgetTasks,
+    WidgetMessages
   },
   computed: {
     ...mapGetters([
       'widgetSalesData',
       'widgetUserActivityData',
-      'widgetTasksData'
+      'widgetTasksData',
+      'widgetMessagesData'
     ])
   },
   methods: {
@@ -73,6 +80,12 @@ export default {
     }
 
     .widget-tasks {
+      max-width: 500px;
+
+      display: none;
+    }
+
+    .widget-messages {
       max-width: 500px;
     }
   }
