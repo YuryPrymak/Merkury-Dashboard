@@ -48,6 +48,7 @@ export default {
     .counter {
       width: 45px;
       height: 45px;
+      flex-shrink: 0;
       border-radius: 50%;
       color: #fff;
       text-align: center;

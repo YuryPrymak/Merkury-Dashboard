@@ -1,28 +1,35 @@
 <template>
   <div class="wrapper">
-    <widget-sales
-      :widget-data="widgetSalesData"
-      @change-period="widgetSalesChangeDisplayedPeriod"
-      class="widget widget-sales"
-    ></widget-sales>
-    <widget-user-activity
-      :widget-data="widgetUserActivityData"
-      @change-period="widgetUserActivityChangeDisplayedPeriod"
-      class="widget widget-user-activity">
-    </widget-user-activity>
-    <widget-tasks
-      :widget-data="widgetTasksData"
-      @remove-task="widgetTasksRemoveTask"
-      class="widget widget-tasks">
-    </widget-tasks>
-    <widget-messages
-      :widget-data="widgetMessagesData"
-      class="widget widget-messages">
-    </widget-messages>
-    <widget-activity
-      :widget-data="widgetActivityData"
-      class="widget widget-activity">
-    </widget-activity>
+    <ul class="widgets">
+      <li class="widget widget-sales-wrapper">
+        <widget-sales
+          :widget-data="widgetSalesData"
+          @change-period="widgetSalesChangeDisplayedPeriod"
+        ></widget-sales>
+      </li>
+      <li class="widget widget-user-activity-wrapper">
+        <widget-user-activity
+          :widget-data="widgetUserActivityData"
+          @change-period="widgetUserActivityChangeDisplayedPeriod"
+        ></widget-user-activity>
+      </li>
+      <li class="widget widget-tasks-wrapper">
+        <widget-tasks
+          :widget-data="widgetTasksData"
+          @remove-task="widgetTasksRemoveTask"
+        ></widget-tasks>
+      </li>
+      <li class="widget widget-messages-wrapper">
+        <widget-messages
+          :widget-data="widgetMessagesData"
+        ></widget-messages>
+      </li>
+      <li class="widget widget-activity-wrapper">
+        <widget-activity
+          :widget-data="widgetActivityData"
+        ></widget-activity>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -61,35 +68,37 @@ export default {
 
 <style scoped lang="scss">
   .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 45px;
+    padding: 40px;
 
-    .widget {
-      width: 100%;
-      background-color: var(--widget-bg-color);
-      border: 1px solid #d4d9e3;
-    }
+    .widgets {
+      --widget-margin: 20px;
 
-    .widget-sales {
-      max-width: calc(40% - 40px);
-      margin-right: 40px;
-    }
+      width: calc(100% + (var(--widget-margin) * 2));
+      display: flex;
+      flex-wrap: wrap;
+      margin: calc(var(--widget-margin) * -1);
 
-    .widget-user-activity {
-      max-width: 300px;
-    }
+      .widget {
+        width: 100%;
+        margin: var(--widget-margin);
+        list-style-type: none;
+        background-color: var(--widget-bg-color);
+        border: 1px solid #d4d9e3;
+      }
 
-    .widget-tasks {
-      max-width: 300px;
-    }
+      .widget-sales-wrapper {
+        max-width: calc(100% / 12 * 5 - (var(--widget-margin) * 2));
+      }
 
-    .widget-messages {
-      max-width: 300px;
-    }
+      .widget-user-activity-wrapper {
+        max-width: calc(100% / 12 * 7 - (var(--widget-margin) * 2));
+      }
 
-    .widget-activity {
-      max-width: 3d00px;
+      .widget-tasks-wrapper,
+      .widget-messages-wrapper,
+      .widget-activity-wrapper {
+        max-width: calc(100% / 12 * 4 - (var(--widget-margin) * 2));
+      }
     }
   }
 </style>
