@@ -185,7 +185,7 @@ export default {
         border: 2px solid #fff;
         line-height: 16px;
         background-color: var(--controls-bg-color-hover);
-        color: #fff;
+        color: var(--text-color-primary);
         font-size: 12px;
         font-weight: 500;
       }
@@ -272,7 +272,7 @@ export default {
         display: block;
         padding: 0 5px;
         line-height: 30px;
-        color: #fff;
+        color: var(--text-color-primary);
         font-size: 16px;
         font-weight: 700;
         text-align: center;

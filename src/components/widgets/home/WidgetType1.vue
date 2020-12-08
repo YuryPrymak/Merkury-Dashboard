@@ -78,7 +78,7 @@ export default {
       bottom: 30px;
       right: 30px;
       text-align: center;
-      color: #8492af;
+      color: var(--widget-elems-color);
 
       .number {
         font-size: 36px;

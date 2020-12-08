@@ -50,7 +50,7 @@ export default {
       position: absolute;
       top: 50%;
       left: 50%;
-      color: #8492af;
+      color: var(--widget-elems-color);
       text-align: center;
       font-size: 54px;
       font-weight: 700;

@@ -64,7 +64,7 @@ export default {
     background-color: var(--widget-bg-color);
 
     .title {
-      color: #8492af;
+      color: var(--widget-elems-color);
       font-size: 36px;
       font-weight: 700;
     }
@@ -83,10 +83,10 @@ export default {
 
       .label {
         margin-right: auto;
-        color: #8492af;
+        color: var(--widget-elems-color);
 
         .period {
-          color: #000;
+          color: var(--widget-elems-color-2);
           font-weight: 700;
           text-transform: capitalize;
           white-space: nowrap;
@@ -127,7 +127,7 @@ export default {
           width: 100%;
           height: 30px;
           background-color: transparent;
-          color: #8492af;
+          color: var(--widget-elems-color);
           font-size: 20px;
           font-weight: 700;
           transition: background-color var(--hover-transition-time) ease-in-out,
@@ -135,7 +135,7 @@ export default {
           text-transform: capitalize;
 
           &:hover {
-            background-color: #f0f0f0;
+            background-color: var(--widget-elems-color-hover);
             color: var(--controls-bg-color-hover);
           }
         }

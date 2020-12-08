@@ -93,19 +93,19 @@ export default {
 
         .name {
           margin-right: 10px;
-          color: #0e1a35;
+          color: var(--widget-elems-color-3);
           font-weight: 500;
         }
 
         .time {
-          color: #8492af;
+          color: var(--widget-elems-color);
           font-weight: 400;
         }
       }
 
       .message-text {
         margin-bottom: 10px;
-        color: #0e1a35;
+        color: var(--widget-elems-color-3);
         font-size: 14px;
       }
 
@@ -129,7 +129,7 @@ export default {
             svg {
               width: 100%;
               height: 100%;
-              fill: #8492af;
+              fill: var(--widget-elems-color);
               transition: fill var(--hover-transition-time) ease-in-out;
             }
           }
@@ -139,6 +139,6 @@ export default {
   }
 
   .unread-message {
-    background-color: #f4f5f8;
+    background-color: var(--widget-bg-color-2);
   }
 </style>

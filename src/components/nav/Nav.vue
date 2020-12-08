@@ -112,7 +112,7 @@ export default {
               position: absolute;
               top: 2px;
               left: -15px;
-              background-color: #5584ff;
+              background-color: var(--nav-bg-bolor-before);
               opacity: 0;
               animation: slide .3s ease-out forwards;
             }

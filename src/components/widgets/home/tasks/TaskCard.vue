@@ -98,7 +98,7 @@ export default {
       flex-shrink: 0;
       border-radius: 50%;
       background-color: #5384ff;
-      color: #fff;
+      color: var(--widget-elems-color-4);
       text-align: center;
       line-height: 45px;
       font-size: 24px;
@@ -112,7 +112,7 @@ export default {
 
       .title {
         margin-bottom: 8px;
-        color: #0e1a35;
+        color: var(--widget-elems-color-3);
         font-size: 20px;
         font-weight: 500;
       }
@@ -121,7 +121,7 @@ export default {
         position: relative;
         padding-left: 25px;
         font-size: 14px;
-        color: #8492af;
+        color: var(--widget-elems-color);
 
         .icon-time {
           display: block;
@@ -134,7 +134,7 @@ export default {
           svg {
             width: 100%;
             height: 100%;
-            fill: #8492af;
+            fill: var(--widget-elems-color);
           }
         }
       }
@@ -168,7 +168,7 @@ export default {
         width: 80%;
         height: 80%;
         margin-top: 3px;
-        fill: #8492af;
+        fill: var(--widget-elems-color);
         transition: fill var(--hover-transition-time) ease-in-out;
       }
     }
@@ -187,7 +187,7 @@ export default {
         width: 100%;
         height: 30px;
         background-color: transparent;
-        color: #8492af;
+        color: var(--widget-elems-color);
         font-size: 20px;
         font-weight: 700;
         transition: background-color var(--hover-transition-time) ease-in-out,
@@ -195,7 +195,7 @@ export default {
         text-transform: capitalize;
 
         &:hover {
-          background-color: #f0f0f0;
+          background-color: var(--widget-elems-color-hover);
           color: var(--controls-bg-color-hover);
         }
       }

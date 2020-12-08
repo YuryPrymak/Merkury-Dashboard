@@ -84,12 +84,12 @@ export default {
 
       .name {
         margin-right: 5px;
-        color: #0e1a35;
+        color: var(--widget-elems-color-3);
         font-weight: 500;
       }
 
       .text {
-        color: #8492af;
+        color: var(--widget-elems-color);
         font-weight: 400;
       }
     }
@@ -97,7 +97,7 @@ export default {
     .time {
       position: relative;
       padding-left: 25px;
-      color: #8492af;
+      color: var(--widget-elems-color);
       font-size: 14px;
       font-weight: 400;
 
@@ -112,7 +112,7 @@ export default {
         svg {
           width: 100%;
           height: 100%;
-          fill: #8492af;
+          fill: var(--widget-elems-color);
         }
       }
     }

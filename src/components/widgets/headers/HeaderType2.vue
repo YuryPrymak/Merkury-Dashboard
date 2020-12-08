@@ -39,7 +39,7 @@ export default {
     border-bottom: 1px solid #dadee7;
 
     .title {
-      color: #0e1a35;
+      color: var(--widget-elems-color-3);
       font-size: 24px;
       font-weight: 500;
       margin-right: auto;
@@ -50,7 +50,7 @@ export default {
       height: 45px;
       flex-shrink: 0;
       border-radius: 50%;
-      color: #fff;
+      color: var(--widget-elems-color-4);
       text-align: center;
       line-height: 45px;
       font-size: 24px;
