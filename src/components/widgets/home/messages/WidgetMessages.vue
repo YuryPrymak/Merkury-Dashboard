@@ -1,6 +1,6 @@
 <template>
   <div class="widget-messages">
-    <widget-header-type-2 :header-data="headerData"></widget-header-type-2>
+    <widget-header-notifications :header-data="headerData"></widget-header-notifications>
     <p v-show="isHaveMessages" class="label">No Messages</p>
     <ul class="messages">
       <message-card
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import WidgetHeaderType2 from '@/components/widgets/headers/HeaderType2.vue';
+import WidgetHeaderNotifications from '@/components/widgets/headers/Notifications.vue';
 import MessageCard from '@/components/widgets/home/messages/MessageCard.vue';
 
 export default {
   name: 'Messages',
   props: ['widgetData'],
   components: {
-    WidgetHeaderType2,
+    WidgetHeaderNotifications,
     MessageCard
   },
   computed: {

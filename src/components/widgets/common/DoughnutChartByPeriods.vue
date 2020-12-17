@@ -1,9 +1,9 @@
 <template>
-  <div class="widget-type-1">
-    <widget-header-type-1
+  <div class="widget-doughnut-chart-by-periods">
+    <widget-header-choice-period
       :header-data="headerData"
       @change-period="changePeriod"
-    ></widget-header-type-1>
+    ></widget-header-choice-period>
     <doughnut-chart :chart-data="chartData" class="doughnut-chart"></doughnut-chart>
     <div class="total-number-of-sales">
       <p class="number">{{ totalNumberOfSales }}</p>
@@ -14,13 +14,13 @@
 
 <script>
 import DoughnutChart from '@/components/charts/DoughnutChart.vue';
-import WidgetHeaderType1 from '@/components/widgets/headers/HeaderType1.vue';
+import WidgetHeaderChoicePeriod from '@/components/widgets/headers/ChoicePeriod.vue';
 
 export default {
-  name: 'WidgetType1',
+  name: 'DoughnutChartByPeriods',
   props: ['widgetData'],
   components: {
-    WidgetHeaderType1,
+    WidgetHeaderChoicePeriod,
     DoughnutChart
   },
   computed: {
@@ -66,7 +66,7 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
 
-  .widget-type-1 {
+  .widget-doughnut-chart-by-periods {
     position: relative;
 
     .doughnut-chart {

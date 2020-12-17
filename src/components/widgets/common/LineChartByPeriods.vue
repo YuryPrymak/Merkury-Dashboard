@@ -1,22 +1,22 @@
 <template>
-  <div class="widget-type-2">
-    <widget-header-type-1
+  <div class="widget-line-chart-by-periods">
+    <widget-header-choice-period
       :header-data="headerData"
       @change-period="changePeriod"
-    ></widget-header-type-1>
+    ></widget-header-choice-period>
     <line-chart :chart-data="chartData" class="line-chart"></line-chart>
   </div>
 </template>
 
 <script>
 import LineChart from '@/components/charts/LineChart.vue';
-import WidgetHeaderType1 from '@/components/widgets/headers/HeaderType1.vue';
+import WidgetHeaderChoicePeriod from '@/components/widgets/headers/ChoicePeriod.vue';
 
 export default {
-  name: 'WidgetType2',
+  name: 'LineChartByPeriods',
   props: ['widgetData'],
   components: {
-    WidgetHeaderType1,
+    WidgetHeaderChoicePeriod,
     LineChart
   },
   computed: {
@@ -52,7 +52,7 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
 
-  .widget-type-2 {
+  .widget-line-chart-by-periods {
     .line-chart {
       margin: 30px;
     }

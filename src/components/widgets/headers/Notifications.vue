@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'HeaderType2',
+  name: 'Notifications',
   props: ['headerData'],
   computed: {
     showCounterInfo() {

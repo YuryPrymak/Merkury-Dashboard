@@ -1,6 +1,6 @@
 <template>
   <div class="widget-activity">
-    <widget-header-type-2 :header-data="headerData"></widget-header-type-2>
+    <widget-header-notifications :header-data="headerData"></widget-header-notifications>
     <ul class="activity">
       <activity-card
         v-for="data in widgetData.data"
@@ -13,14 +13,14 @@
 </template>
 
 <script>
-import WidgetHeaderType2 from '@/components/widgets/headers/HeaderType2.vue';
+import WidgetHeaderNotifications from '@/components/widgets/headers/Notifications.vue';
 import ActivityCard from '@/components/widgets/home/activity/ActivityCard.vue';
 
 export default {
   name: 'Activity',
   props: ['widgetData'],
   components: {
-    WidgetHeaderType2,
+    WidgetHeaderNotifications,
     ActivityCard
   },
   computed: {

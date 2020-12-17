@@ -13,7 +13,7 @@
 import SelectPeriod from '@/components/SelectPeriod.vue';
 
 export default {
-  name: 'HeaderType1',
+  name: 'ChoicePeriod',
   props: ['headerData'],
   components: {
     SelectPeriod

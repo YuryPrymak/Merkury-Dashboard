@@ -1,6 +1,6 @@
 <template>
   <div class="widget-tasks">
-    <widget-header-type-2 :header-data="headerData"></widget-header-type-2>
+    <widget-header-notifications :header-data="headerData"></widget-header-notifications>
     <p v-show="isHaveTasks" class="label">No Tasks</p>
     <draggable tag="ul" :options="{handle: '.handle', animation: 100}" class="tasks">
       <transition-group name="tasks-list">
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import WidgetHeaderType2 from '@/components/widgets/headers/HeaderType2.vue';
+import WidgetHeaderNotifications from '@/components/widgets/headers/Notifications.vue';
 import TaskCard from '@/components/widgets/home/tasks/TaskCard.vue';
 import draggable from 'vuedraggable';
 
@@ -25,7 +25,7 @@ export default {
   name: 'Tasks',
   props: ['widgetData'],
   components: {
-    WidgetHeaderType2,
+    WidgetHeaderNotifications,
     TaskCard,
     draggable
   },

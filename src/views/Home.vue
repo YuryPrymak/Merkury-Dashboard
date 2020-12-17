@@ -36,8 +36,8 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
-import WidgetSales from '@/components/widgets/home/WidgetType1.vue';
-import WidgetUserActivity from '@/components/widgets/home/WidgetType2.vue';
+import WidgetSales from '@/components/widgets/common/DoughnutChartByPeriods.vue';
+import WidgetUserActivity from '@/components/widgets/common/LineChartByPeriods.vue';
 import WidgetTasks from '@/components/widgets/home/tasks/WidgetTasks.vue';
 import WidgetMessages from '@/components/widgets/home/messages/WidgetMessages.vue';
 import WidgetActivity from '@/components/widgets/home/activity/WidgetActivity.vue';
