@@ -19,11 +19,6 @@ export default {
         iconPath: 'nav/statistics.png'
       },
       {
-        url: '/calendar',
-        title: 'Calendar',
-        iconPath: 'nav/calendar.png'
-      },
-      {
         url: '/users',
         title: 'Users',
         iconPath: 'nav/users.png'

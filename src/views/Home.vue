@@ -6,18 +6,6 @@
           :widget-data="widgetProgressData"
         ></widget-progress>
       </li>
-      <li class="widget widget-sales-wrapper">
-        <widget-sales
-          :widget-data="widgetSalesData"
-          @change-period="widgetSalesChangeDisplayedPeriod"
-        ></widget-sales>
-      </li>
-      <li class="widget widget-user-activity-wrapper">
-        <widget-user-activity
-          :widget-data="widgetUserActivityData"
-          @change-period="widgetUserActivityChangeDisplayedPeriod"
-        ></widget-user-activity>
-      </li>
       <li class="widget widget-tasks-wrapper">
         <widget-tasks
           :widget-data="widgetTasksData"
@@ -42,8 +30,6 @@
 import { mapGetters, mapActions } from 'vuex';
 
 import WidgetProgress from '@/components/widgets/home/Progress.vue';
-import WidgetSales from '@/components/widgets/common/DoughnutChartByPeriods.vue';
-import WidgetUserActivity from '@/components/widgets/common/LineChartByPeriods.vue';
 import WidgetTasks from '@/components/widgets/home/tasks/WidgetTasks.vue';
 import WidgetMessages from '@/components/widgets/home/messages/WidgetMessages.vue';
 import WidgetActivity from '@/components/widgets/home/activity/WidgetActivity.vue';
@@ -52,23 +38,17 @@ export default {
   name: 'Home',
   components: {
     WidgetProgress,
-    WidgetSales,
-    WidgetUserActivity,
     WidgetTasks,
     WidgetMessages,
     WidgetActivity
   },
   computed: {
     ...mapGetters('widgetProgress', { widgetProgressData: 'data' }),
-    ...mapGetters('widgetSales', { widgetSalesData: 'data' }),
-    ...mapGetters('widgetUserActivity', { widgetUserActivityData: 'data' }),
     ...mapGetters('widgetTasks', { widgetTasksData: 'data' }),
     ...mapGetters('widgetMessages', { widgetMessagesData: 'data' }),
     ...mapGetters('widgetActivity', { widgetActivityData: 'data' })
   },
   methods: {
-    ...mapActions('widgetSales', { widgetSalesChangeDisplayedPeriod: 'changeDisplayedPeriod' }),
-    ...mapActions('widgetUserActivity', { widgetUserActivityChangeDisplayedPeriod: 'changeDisplayedPeriod' }),
     ...mapActions('widgetTasks', { widgetTasksRemoveTask: 'removeTask' })
   }
 };
@@ -92,14 +72,6 @@ export default {
         list-style-type: none;
         background-color: var(--widget-bg-color);
         border: 1px solid #d4d9e3;
-      }
-
-      .widget-sales-wrapper {
-        max-width: calc(100% / 12 * 5 - (var(--widget-margin) * 2));
-      }
-
-      .widget-user-activity-wrapper {
-        max-width: calc(100% / 12 * 7 - (var(--widget-margin) * 2));
       }
 
       .widget-tasks-wrapper,

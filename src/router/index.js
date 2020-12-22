@@ -4,7 +4,6 @@ import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
 import Workflow from '@/views/Workflow.vue';
 import Statistics from '@/views/Statistics.vue';
-import Calendar from '@/views/Calendar.vue';
 import Users from '@/views/Users.vue';
 import Settings from '@/views/Settings.vue';
 
@@ -25,11 +24,6 @@ const routes = [
     path: '/statistics',
     name: 'Statistics',
     component: Statistics
-  },
-  {
-    path: '/calendar',
-    name: 'Calendar',
-    component: Calendar
   },
   {
     path: '/users',
