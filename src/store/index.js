@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 
 import navigation from '@/store/modules/navigation';
+import widgetProgress from '@/store/modules/widgets/progress';
 import widgetSales from '@/store/modules/widgets/sales';
 import widgetUserActivity from '@/store/modules/widgets/user-activity';
 import widgetTasks from '@/store/modules/widgets/tasks';
@@ -14,6 +15,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   modules: {
     navigation,
+    widgetProgress,
     widgetSales,
     widgetUserActivity,
     widgetTasks,

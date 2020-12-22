@@ -1,6 +1,11 @@
 <template>
   <div class="wrapper">
     <ul class="widgets">
+      <li class="widget widget-progress">
+        <widget-progress
+          :widget-data="widgetProgressData"
+        ></widget-progress>
+      </li>
       <li class="widget widget-sales-wrapper">
         <widget-sales
           :widget-data="widgetSalesData"
@@ -36,6 +41,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 
+import WidgetProgress from '@/components/widgets/home/Progress.vue';
 import WidgetSales from '@/components/widgets/common/DoughnutChartByPeriods.vue';
 import WidgetUserActivity from '@/components/widgets/common/LineChartByPeriods.vue';
 import WidgetTasks from '@/components/widgets/home/tasks/WidgetTasks.vue';
@@ -45,6 +51,7 @@ import WidgetActivity from '@/components/widgets/home/activity/WidgetActivity.vu
 export default {
   name: 'Home',
   components: {
+    WidgetProgress,
     WidgetSales,
     WidgetUserActivity,
     WidgetTasks,
@@ -52,6 +59,7 @@ export default {
     WidgetActivity
   },
   computed: {
+    ...mapGetters('widgetProgress', { widgetProgressData: 'data' }),
     ...mapGetters('widgetSales', { widgetSalesData: 'data' }),
     ...mapGetters('widgetUserActivity', { widgetUserActivityData: 'data' }),
     ...mapGetters('widgetTasks', { widgetTasksData: 'data' }),
