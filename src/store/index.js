@@ -9,6 +9,7 @@ import widgetTasks from '@/store/modules/widgets/tasks';
 import widgetMessages from '@/store/modules/widgets/messages';
 import widgetActivity from '@/store/modules/widgets/activity';
 import workflow from '@/store/modules/workflow';
+import users from '@/store/modules/users';
 
 Vue.use(Vuex);
 
@@ -21,7 +22,8 @@ export default new Vuex.Store({
     widgetTasks,
     widgetMessages,
     widgetActivity,
-    workflow
+    workflow,
+    users
   },
   state: {},
   getters: {},
