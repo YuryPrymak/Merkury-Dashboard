@@ -35,17 +35,26 @@ export default {
       return state.navLinks;
     },
     minimizedNavigation(state) {
-      return state.minimizedNavigation || false;
+      return state.minimizedNavigation;
     }
   },
   mutations: {
     navToggle(state) {
+      const cookieTime = 7 * 24 * 60 * 60;
+
       state.minimizedNavigation = !state.minimizedNavigation;
+      document.cookie = `navState=${state.minimizedNavigation}; path=/; max-age=${cookieTime}`;
+    },
+    setNavState(state, payload) {
+      payload === 'true' ? state.minimizedNavigation = true : state.minimizedNavigation = false;
     }
   },
   actions: {
     navToggle(store) {
       store.commit('navToggle');
+    },
+    setNavState(store, payload) {
+      store.commit('setNavState', payload.status);
     }
   }
 };
