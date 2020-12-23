@@ -43,6 +43,10 @@ export default {
     font-family: 'Roboto', sans-serif;
   }
 
+  button {
+    font-family: 'Roboto', sans-serif;
+  }
+
   a {
     text-decoration: none;
   }
