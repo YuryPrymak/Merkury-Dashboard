@@ -4,7 +4,7 @@ import { Line, mixins } from 'vue-chartjs';
 const { reactiveProp } = mixins;
 
 export default {
-  name: 'Line',
+  name: 'LineChart',
   props: ['chartData'],
   extends: Line,
   mixins: [reactiveProp],

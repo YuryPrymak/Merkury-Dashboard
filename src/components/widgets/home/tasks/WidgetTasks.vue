@@ -2,7 +2,7 @@
   <div class="widget-tasks">
     <widget-header-notifications :header-data="headerData"></widget-header-notifications>
     <p v-show="isHaveTasks" class="label">No Tasks</p>
-    <draggable tag="ul" :options="{handle: '.handle', animation: 100}" class="tasks">
+    <draggable tag="ul" handle=".handle" :animation="100" class="tasks">
       <transition-group name="tasks-list">
         <task-card
           v-for="data in widgetData.data"
