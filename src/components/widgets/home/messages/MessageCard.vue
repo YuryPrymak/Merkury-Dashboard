@@ -57,6 +57,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .card {
     width: 100%;
@@ -66,6 +67,10 @@ export default {
     padding: 0 30px;
     border-top: 1px solid #dadee7;
     list-style-type: none;
+
+    @include media-md {
+      padding: 0 10px;
+    }
 
     &:first-child {
       border-top: none;
@@ -91,6 +96,10 @@ export default {
         margin-bottom: 5px;
         font-size: 14px;
 
+        @include media-md {
+          font-size: 16px;
+        }
+
         .name {
           margin-right: 10px;
           color: var(--widget-elems-color-3);
@@ -107,6 +116,10 @@ export default {
         margin-bottom: 10px;
         color: var(--widget-elems-color-3);
         font-size: 14px;
+
+        @include media-md {
+          font-size: 16px;
+        }
       }
 
       .controls {

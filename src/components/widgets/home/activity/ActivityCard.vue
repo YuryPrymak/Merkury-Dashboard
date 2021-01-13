@@ -29,6 +29,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .card {
     width: 100%;
@@ -39,6 +40,10 @@ export default {
     padding: 0 30px;
     list-style-type: none;
 
+    @include media-md {
+      padding: 0 10px;
+    }
+
     &::before,
     &::after {
       content: '';
@@ -48,6 +53,10 @@ export default {
       left: 53px;
       background-color: #dadee7;
       transform: translateX(-50%);
+
+      @include media-md {
+        left: 33px;
+      }
     }
 
     &::before {
@@ -82,6 +91,10 @@ export default {
       margin-bottom: 10px;
       font-size: 14px;
 
+      @include media-md {
+        font-size: 16px;
+      }
+
       .name {
         margin-right: 5px;
         color: var(--widget-elems-color-3);
@@ -100,6 +113,10 @@ export default {
       color: var(--widget-elems-color);
       font-size: 14px;
       font-weight: 400;
+
+      @include media-md {
+        font-size: 16px;
+      }
 
       .icon-time {
         display: block;

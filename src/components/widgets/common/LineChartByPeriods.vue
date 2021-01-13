@@ -51,10 +51,15 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .widget-line-chart-by-periods {
     .line-chart {
-      margin: 30px;
+      margin: 0 30px;
+
+      @include media-sm {
+        margin: 5px;
+      }
     }
   }
 </style>

@@ -47,9 +47,22 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .wrapper {
     padding: 40px;
+
+    @include media-xl {
+      padding: 40px 30px;
+    }
+
+    @include media-lg {
+      padding: 20px;
+    }
+
+    @include media-md {
+      padding: 20px 10px 80px 10px;
+    }
 
     .settings-list {
       list-style-type: none;
@@ -63,6 +76,10 @@ export default {
         padding: 20px;
         background-color: var(--widget-bg-color);
         border: 1px solid #d4d9e3;
+
+        @include media-md {
+          margin-bottom: 10px;
+        }
 
         &:last-child {
           margin-bottom: 0;

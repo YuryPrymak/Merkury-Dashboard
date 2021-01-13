@@ -37,6 +37,7 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
 @import '@/assets/scss/_mixins.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .wrapper {
     width: var(--nav-width);
@@ -45,6 +46,14 @@ export default {
     top: 0;
     left: 0;
     background-color: var(--nav-bg-color);
+    z-index: var(--nav-z-index);
+
+    @include media-md {
+      width: 100vw;
+      height: 60px;
+      top: auto;
+      bottom: 0;
+    }
 
     .btn-home {
       width: 100%;
@@ -52,9 +61,18 @@ export default {
       display: block;
       position: relative;
       padding-left: 105px;
+      border-bottom: 2px solid #0d172e;
       color: var(--text-color-primary);
       font-size: 30px;
       line-height: var(--header-height);
+
+      @include minimizeNav {
+        padding-left: 0px;
+      }
+
+      @include media-md {
+        display: none;
+      }
 
       .logo {
         width: 52px;
@@ -63,38 +81,84 @@ export default {
         top: 50%;
         left: 40px;
         transform: translateY(-50%);
+
+        @include minimizeNav {
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
+
+      .name {
+        @include minimizeNav {
+          display: none;
+        }
       }
     }
 
     .nav {
+      @include media-md {
+        height: 100%;
+      }
+
       ul {
         height: calc(100vh - var(--header-height));
-        overflow-y: auto;
+        list-style-type: none;
+        overflow-x: auto;
+        overflow-y: hidden;
 
         @include scrollbar;
 
+        @include media-md {
+          height: 100%;
+          display: flex;
+        }
+
         li {
           position: relative;
+
+          @include media-md {
+            width: 100%;
+            min-width: 60px;
+          }
 
           .link {
             width: 100%;
             height: 100px;
             display: block;
             padding-left: 90px;
-            border: 2px solid #0d172e;
-            border-left: none;
-            border-right: 0;
+            border-bottom: 2px solid #0d172e;
             line-height: 100px;
             color: var(--text-color-primary);
             font-size: var(--nav-font-size);
             font-weight: 500;
             transition: background-color var(--hover-transition-time) ease-in-out;
 
+            @include media-md {
+              height: 100%;
+              padding-left: 0;
+              border: 1px solid #0d172e;
+              border-top: none;
+              border-bottom: none;
+            }
+
             .icon {
               position: absolute;
               top: 50%;
               right: 245px;
               transform: translateY(-50%);
+
+              @include minimizeNav {
+                top: 50%;
+                right: 0;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+              }
+            }
+
+            .title {
+              @include minimizeNav {
+                display: none;
+              }
             }
 
             &:hover {
@@ -108,13 +172,22 @@ export default {
             &::before {
               content: '';
               width: 10px;
-              height: calc(100% - 4px);
+              height: calc(100% - 2px);
               position: absolute;
-              top: 2px;
+              top: 0;
               left: -15px;
               background-color: var(--nav-bg-bolor-before);
               opacity: 0;
-              animation: slide .3s ease-out forwards;
+              animation: slide-left .3s ease-out forwards;
+
+              @include media-md {
+                width: calc(100% - 2px);
+                height: 5px;
+                top: auto;
+                bottom: 0;
+                left: 1px;
+                animation: slide-bottom .3s ease-out forwards;
+              }
             }
           }
         }
@@ -158,7 +231,7 @@ export default {
     }
   }
 
-@keyframes slide {
+@keyframes slide-left {
   from {
     left: -15px;
     opacity: 0;
@@ -166,6 +239,18 @@ export default {
 
   to {
     left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-bottom {
+  from {
+    bottom: -15px;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 0;
     opacity: 1;
   }
 }

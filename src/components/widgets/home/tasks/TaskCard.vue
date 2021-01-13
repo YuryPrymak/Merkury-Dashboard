@@ -76,6 +76,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .card {
     width: 100%;
@@ -86,6 +87,10 @@ export default {
     padding: 0 30px;
     border-top: 1px solid #dadee7;
     list-style-type: none;
+
+    @include media-md {
+      padding: 0 10px;
+    }
 
     &:first-child {
       border-top: none;
@@ -104,11 +109,19 @@ export default {
       font-size: 24px;
       font-weight: 500;
       cursor: move;
+
+      @include media-md {
+        margin-right: 15px;
+      }
     }
 
     .info {
       width: 100%;
       margin-right: 25px;
+
+      @include media-md {
+        margin-right: 15px;
+      }
 
       .title {
         margin-bottom: 8px;
@@ -122,6 +135,10 @@ export default {
         padding-left: 25px;
         font-size: 14px;
         color: var(--widget-elems-color);
+
+        @include media-md {
+          font-size: 16px;
+        }
 
         .icon-time {
           display: block;

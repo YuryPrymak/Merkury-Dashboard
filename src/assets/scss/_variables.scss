@@ -1,3 +1,5 @@
+@import '@/assets/scss/_media-queries.scss';
+
 :root {
   // Main
   --main-bg-color: #f6f7fa;
@@ -9,10 +11,17 @@
 
   --hover-transition-time: .1s;
 
-  --content-padding: 40px;
-
   // Header
   --header-height: 120px;
+
+  @include media-xl {
+    --header-height: 80px;
+  }
+
+  @include media-md {
+    --header-height: 60px;
+  }
+
   --header-bg-color: #fff;
 
   // Navigation
@@ -23,6 +32,10 @@
   --nav-font-size: 24px;
 
   .nav-min {
+    --nav-width: 100px;
+  }
+
+  @include minimizeNav {
     --nav-width: 100px;
   }
 
@@ -44,4 +57,5 @@
   // z-index
 
   --header-z-index: 2;
+  --nav-z-index: 2;
 }

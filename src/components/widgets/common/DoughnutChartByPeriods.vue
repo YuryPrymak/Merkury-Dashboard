@@ -65,12 +65,17 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .widget-doughnut-chart-by-periods {
     position: relative;
 
     .doughnut-chart {
-      margin: 30px;
+      margin: 0 30px 20px 30px;
+
+      @include media-sm {
+        margin: 0 10px;
+      }
     }
 
     .total-number-of-sales {

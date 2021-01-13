@@ -1,6 +1,7 @@
 @mixin scrollbar {
   &::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
     background-color: #0d172e;
   }
 

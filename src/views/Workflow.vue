@@ -1,7 +1,7 @@
 <template>
   <div class="workflow-wrapper">
     <ul class="workflow">
-      <li class="task-category">
+      <li class="task-category" :class="{'empty': tasksToDo.length === 0}">
         <div class="category-info">
           <p class="category-title">
             {{ taskCategoriesTitle.toDo }}
@@ -40,7 +40,7 @@
           </transition-group>
         </draggable>
       </li>
-      <li class="task-category">
+      <li class="task-category" :class="{'empty': tasksInProgress.length === 0}">
         <div class="category-info">
           <p class="category-title">
             {{ taskCategoriesTitle.inProgress }}
@@ -74,7 +74,7 @@
           </transition-group>
         </draggable>
       </li>
-      <li class="task-category">
+      <li class="task-category" :class="{'empty': tasksCompleted.length === 0}">
         <div class="category-info">
           <p class="category-title">
             {{ taskCategoriesTitle.completed }}
@@ -181,30 +181,60 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
 @import '@/assets/scss/_mixins.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .workflow-wrapper {
-    padding: var(--content-padding);
+    padding: 40px;
+    overflow: hidden;
+
+    @include media-xl {
+      padding: 40px 30px;
+    }
+
+    @include media-lg {
+      padding: 20px;
+    }
+
+    @include media-md {
+      padding: 20px 10px 80px 10px;
+    }
 
     .workflow {
       --list-margin: 20px;
       --category-info-height: 50px;
       --category-info-margin-bottom: 30px;
 
+      @include media-xl {
+        --category-info-margin-bottom: 5px;
+      }
+
       display: flex;
       position: relative;
       margin: 0 calc(var(--list-margin) * -1);
       list-style-type: none;
 
+      @include media-xl {
+        flex-direction: column;
+      }
+
       .task-category {
+        width: calc(100% / 3 - (var(--list-margin) * 2));
         height:
           calc(100vh
-          - (var(--content-padding) * 2)
-          - var(--category-info-height)
-          - var(--category-info-margin-bottom)
-          - var(--header-height));
-        width: calc(100% / 3 - (var(--list-margin) * 2));
+            - var(--category-info-height)
+            - var(--category-info-margin-bottom)
+            - var(--header-height));
         position: relative;
         margin: 0 var(--list-margin);
+        overflow: hidden;
+
+        @include media-xl {
+          width: calc(100% - (var(--list-margin) * 2));
+          height:
+            calc(390px
+              + var(--category-info-height)
+              + var(--category-info-margin-bottom));
+        }
 
         .category-info {
           height: var(--category-info-height);
@@ -213,8 +243,12 @@ export default {
           position: relative;
           margin-bottom: var(--category-info-margin-bottom);
 
+          @include media-xl {
+            justify-content: center;
+          }
+
           .category-title {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 500;
             line-height: var(--category-info-height);
             color: var(--widget-elems-color-3);
@@ -252,6 +286,10 @@ export default {
             right: -5px;
             transform: translateY(-50%);
 
+            @include media-xl {
+              display: none;
+            }
+
             svg {
               width: 100%;
               height: 100%;
@@ -274,13 +312,26 @@ export default {
         }
 
         .task-list {
-          height: 100%;
+          height:
+            calc(100vh
+              - 80px
+              - var(--category-info-height)
+              - var(--category-info-margin-bottom)
+              - var(--header-height));
           padding-right: 3px;
           position: relative;
           overflow: auto;
           list-style-type: none;
 
           @include scrollbar;
+
+          @include media-xl {
+            height:
+              calc(390px
+                - 80px
+                + var(--category-info-height)
+                + var(--category-info-margin-bottom));
+          }
 
           .task-card {
             background-color: var(--task-card-bg-color);
@@ -292,6 +343,10 @@ export default {
             }
           }
         }
+      }
+
+      .empty {
+        border: 1px solid #d4d9e3;
       }
     }
   }

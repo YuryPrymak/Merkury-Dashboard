@@ -25,8 +25,10 @@ export default {
 @import '@/assets/scss/_variables.scss';
 
   .widget-progress {
+    padding: 10px 0;
+
     .title {
-      margin: 10px 35px;
+      margin: 10px;
       color: var(--widget-elems-color);
       font-size: 36px;
       font-weight: 700;
@@ -38,10 +40,6 @@ export default {
       flex-wrap: wrap;
       justify-content: space-around;
       list-style-type: none;
-
-      .progress-bar {
-        margin: 10px;
-      }
     }
   }
 </style>

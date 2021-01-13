@@ -55,15 +55,35 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/scss/_media-queries.scss';
+
   .wrapper {
     padding: 40px;
+    overflow: hidden;
+
+    @include media-xl {
+      padding: 40px 30px;
+    }
+
+    @include media-lg {
+      padding: 20px;
+    }
+
+    @include media-md {
+      padding: 20px 10px 80px 10px;
+    }
 
     .widgets {
       --widget-margin: 20px;
 
+      @include media-lg {
+        --widget-margin: 10px;
+      }
+
       width: calc(100% + (var(--widget-margin) * 2));
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       margin: calc(var(--widget-margin) * -1);
 
       .widget {
@@ -77,7 +97,9 @@ export default {
       .widget-tasks-wrapper,
       .widget-messages-wrapper,
       .widget-activity-wrapper {
-        max-width: calc(100% / 12 * 4 - (var(--widget-margin) * 2));
+        flex-basis: 400px;
+        min-width: 340px;
+        flex-grow: 1;
       }
     }
   }

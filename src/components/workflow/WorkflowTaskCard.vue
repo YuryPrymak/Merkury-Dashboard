@@ -79,6 +79,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .task-card {
     width: 100%;
@@ -88,6 +89,10 @@ export default {
     position: relative;
     padding: 10px 10px 10px 35px;
     border: 1px solid #d4d9e3;
+
+    @include media-md {
+      padding: 10px 10px 10px 20px;
+    }
 
     .icon {
       width: 50px;
@@ -107,6 +112,10 @@ export default {
     .info {
       width: 100%;
       margin-right: 25px;
+
+      @include media-md {
+        margin-right: 10px;
+      }
 
       .text {
         margin-bottom: 8px;

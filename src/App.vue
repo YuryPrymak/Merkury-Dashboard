@@ -25,6 +25,7 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/_variables.scss';
 @import '@/assets/scss/_mixins.scss';
+@import '@/assets/scss/_media-queries.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
@@ -39,6 +40,7 @@ export default {
   }
 
   body {
+    min-width: 370px;
     background-color: var(--main-bg-color);
     font-family: 'Roboto', sans-serif;
   }
@@ -59,5 +61,10 @@ export default {
   .main-wrapper {
     max-width: calc(100vw - var(--nav-width));
     margin: var(--header-height) 0 0 var(--nav-width);
+
+    @include media-md {
+      max-width: 100vw;
+      margin: var(--header-height) 0 0 0px;
+    }
   }
 </style>

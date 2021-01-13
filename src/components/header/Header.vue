@@ -1,5 +1,8 @@
 <template>
   <header class="header">
+    <router-link to="/" class="logo">
+      <img src="../../assets/img/nav/logo.png" alt="Logo">
+    </router-link>
     <button
       @click="navToggle"
       class="btn-nav-toggle"
@@ -27,22 +30,20 @@
     </button>
     <button
       @click="settingsMenuToggle"
-      ref="btnSettingsMenuToggle"
+      v-closable="{
+        handler: 'closeSettingsMenu'
+      }"
       class="btn-user-settings"
       :class="userSettingsMenuState"
     >
       <img src="@/assets/img/header/default-user-photo.png" alt="Person" class="user-photo">
+      <ul
+        v-show="showSettingsMenu"
+        class="settings"
+      >
+        <li><a href="#" class="settings-btn">LogOut</a></li>
+      </ul>
     </button>
-    <ul
-      v-show="showSettingsMenu"
-      v-closable="{
-        handler: 'closeSettingsMenu',
-        exclude: ['btnSettingsMenuToggle']
-      }"
-      class="settings"
-    >
-      <li><a href="#" class="settings-btn">LogOut</a></li>
-    </ul>
   </header>
 </template>
 
@@ -85,6 +86,7 @@ export default {
 
 <style scoped lang="scss">
 @import '@/assets/scss/_variables.scss';
+@import '@/assets/scss/_media-queries.scss';
 
   .header {
     width: calc(100% - var(--nav-width));
@@ -100,14 +102,45 @@ export default {
     background-color: var(--header-bg-color);
     z-index: var(--header-z-index);
 
+    @include media-xl {
+      padding: 0 30px;
+    }
+
+    @include media-lg {
+      padding: 0 20px;
+    }
+
+    @include media-md {
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      display: none;
+
+      @include media-md {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
     .btn-nav-toggle {
       width: 25px;
       height: 20px;
       position: relative;
-      margin-right: auto;
       background-color: transparent;
       box-sizing: content-box;
       overflow: hidden;
+
+      @include minimizeNav {
+        display: none;
+      }
 
       &:hover {
         svg {
@@ -160,6 +193,7 @@ export default {
     .btn-notifications {
       margin: 0 10px;
       position: relative;
+      flex-shrink: 0;
       background-color: transparent;
 
       &:hover {
@@ -194,6 +228,7 @@ export default {
     .btn-messages {
       width: 40px;
       height: 30px;
+      margin-left: auto;
     }
 
     .btn-notifications {
@@ -206,6 +241,7 @@ export default {
       height: 50px;
       position: relative;
       margin-left: 10px;
+      flex-shrink: 0;
       background-color: transparent;
       text-align: left;
 
@@ -213,6 +249,33 @@ export default {
         width: 50px;
         height: 50px;
         border-radius: 50%;
+      }
+
+      .settings {
+        width: 120px;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        padding: 5px 0;
+        list-style-type: none;
+        background-color: var(--controls-bg-color);
+        box-shadow: 0px 0px 2px 1px var(--controls-bg-color);
+
+        .settings-btn {
+          height: 30px;
+          display: block;
+          padding: 0 5px;
+          line-height: 30px;
+          color: var(--text-color-primary);
+          font-size: 16px;
+          font-weight: 700;
+          text-align: center;
+          transition: background-color var(--hover-transition-time) ease-in-out;
+
+          &:hover {
+            background-color: var(--controls-bg-color-hover);
+          }
+        }
       }
     }
 
@@ -254,33 +317,6 @@ export default {
       &::after {
         border-width: 0 6px 6px 6px;
         border-color: transparent transparent var(--controls-bg-color) transparent;
-      }
-    }
-
-    .settings {
-      width: 120px;
-      position: absolute;
-      top: 90px;
-      right: 45px;
-      padding: 5px 0;
-      list-style-type: none;
-      background-color: var(--controls-bg-color);
-      box-shadow: 0px 0px 2px 1px var(--controls-bg-color);
-
-      .settings-btn {
-        height: 30px;
-        display: block;
-        padding: 0 5px;
-        line-height: 30px;
-        color: var(--text-color-primary);
-        font-size: 16px;
-        font-weight: 700;
-        text-align: center;
-        transition: background-color var(--hover-transition-time) ease-in-out;
-
-        &:hover {
-          background-color: var(--controls-bg-color-hover);
-        }
       }
     }
   }
