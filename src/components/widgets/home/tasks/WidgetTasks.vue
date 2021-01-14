@@ -2,32 +2,28 @@
   <div class="widget-tasks">
     <widget-header-notifications :header-data="headerData"></widget-header-notifications>
     <p v-show="isHaveTasks" class="label">No Tasks</p>
-    <draggable tag="ul" handle=".handle" :animation="100" class="tasks">
-      <transition-group name="tasks-list">
-        <task-card
-          v-for="data in widgetData.data"
-          :key="data.title"
-          :task-data="data"
-          @remove-task="removeTask"
-          class="task"
-        ></task-card>
-      </transition-group>
-    </draggable>
+    <transition-group tag="ul" name="tasks-list" class="tasks">
+      <task-card
+        v-for="data in widgetData.data"
+        :key="data.title"
+        :task-data="data"
+        @remove-task="removeTask"
+        class="task"
+      ></task-card>
+    </transition-group>
   </div>
 </template>
 
 <script>
 import WidgetHeaderNotifications from '@/components/widgets/headers/Notifications.vue';
 import TaskCard from '@/components/widgets/home/tasks/TaskCard.vue';
-import draggable from 'vuedraggable';
 
 export default {
   name: 'Tasks',
   props: ['widgetData'],
   components: {
     WidgetHeaderNotifications,
-    TaskCard,
-    draggable
+    TaskCard
   },
   computed: {
     headerData() {
@@ -78,10 +74,6 @@ export default {
       .task {
         transition: all .3s;
       }
-    }
-
-    .sortable-chosen {
-      background: #f0f0f0;
     }
   }
 

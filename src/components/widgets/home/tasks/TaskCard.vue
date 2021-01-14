@@ -1,6 +1,6 @@
 <template>
   <li class="card">
-    <div class="icon handle">{{ iconText }}</div>
+    <div class="icon">{{ iconText }}</div>
     <div class="info">
       <p class="title">{{ taskData.title }}</p>
       <p class="time" :class="timeIsUp">
@@ -108,7 +108,6 @@ export default {
       line-height: 45px;
       font-size: 24px;
       font-weight: 500;
-      cursor: move;
 
       @include media-md {
         margin-right: 15px;
