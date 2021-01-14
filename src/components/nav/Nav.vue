@@ -65,6 +65,7 @@ export default {
       color: var(--text-color-primary);
       font-size: 30px;
       line-height: var(--header-height);
+      outline-offset: -2px;
 
       @include minimizeNav {
         padding-left: 0px;
@@ -132,6 +133,7 @@ export default {
             font-size: var(--nav-font-size);
             font-weight: 500;
             transition: background-color var(--hover-transition-time) ease-in-out;
+            outline-offset: -1px;
 
             @include media-md {
               height: 100%;

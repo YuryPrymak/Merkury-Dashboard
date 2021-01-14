@@ -1,5 +1,10 @@
 <template>
-  <div id="app" :class="{'nav-min': minimizedNavigation}">
+  <div
+    id="app"
+    @click="focus = false"
+    @keyup="focus = true"
+    :class="{'nav-min': minimizedNavigation, 'focus-visible': focus}"
+  >
     <app-nav></app-nav>
     <app-header></app-header>
     <router-view class="main-wrapper"></router-view>
@@ -15,6 +20,11 @@ export default {
   components: {
     AppHeader,
     AppNav
+  },
+  data() {
+    return {
+      focus: true
+    };
   },
   computed: {
     ...mapGetters('navigation', { minimizedNavigation: 'minimizedNavigation' }),
@@ -33,6 +43,10 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   :root {
@@ -56,6 +70,12 @@ export default {
   button {
     border: none;
     cursor: pointer;
+  }
+
+  .focus-visible {
+    *:focus {
+      outline: 1px solid #5583FE;
+    }
   }
 
   .main-wrapper {
