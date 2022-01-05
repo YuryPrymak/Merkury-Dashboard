@@ -22,22 +22,22 @@
       </svg>
     </button>
     <ul
-        v-show="showCardOptions"
-        v-closable="{
-          handler: 'closeCardOptions',
-          exclude: ['btnOptions']
-        }"
-        class="card-options"
-      >
-        <li>
-          <button
-            @click="removeTask(taskData.id)"
-            class="btn-remove-card"
-          >
-            Remove
-          </button>
-        </li>
-      </ul>
+      v-show="showCardOptions"
+      v-closable="{
+        handler: 'closeCardOptions',
+        exclude: ['btnOptions']
+      }"
+      class="card-options"
+    >
+      <li>
+        <button
+          @click="removeTask(taskData.id)"
+          class="btn-remove-card"
+        >
+          Remove
+        </button>
+      </li>
+    </ul>
   </li>
 </template>
 

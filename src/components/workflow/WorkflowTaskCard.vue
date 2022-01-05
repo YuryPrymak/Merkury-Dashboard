@@ -13,8 +13,6 @@
       </p>
     </div>
     <button
-      @click="cardOptionsToggle"
-      ref="btnOptions"
       class="btn-options"
     >
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
@@ -22,21 +20,16 @@
       </svg>
     </button>
     <ul
-        v-show="showCardOptions"
-        v-closable="{
-          handler: 'closeCardOptions',
-          exclude: ['btnOptions']
-        }"
-        class="card-options"
-      >
-        <li>
-          <button
-            @click="removeTask({id: taskData.id, category: tasksCategory})"
-            class="btn-remove-card"
-          >
-            Remove Task
-          </button>
-        </li>
+      class="card-options"
+    >
+      <li>
+        <button
+          @click="removeTask({id: taskData.id, category: tasksCategory})"
+          class="btn-remove-card"
+        >
+          Remove Task
+        </button>
+      </li>
     </ul>
   </li>
 </template>
@@ -45,11 +38,6 @@
 export default {
   name: 'WorkflowTaskCard',
   props: ['taskData', 'tasksCategory'],
-  data() {
-    return {
-      showCardOptions: false
-    };
-  },
   computed: {
     iconText() {
       return this.taskData.text.charAt(0);
@@ -66,12 +54,6 @@ export default {
   methods: {
     removeTask(taskId) {
       this.$emit('remove-task', taskId);
-    },
-    cardOptionsToggle() {
-      this.showCardOptions = !this.showCardOptions;
-    },
-    closeCardOptions() {
-      this.showCardOptions = false;
     }
   }
 };
@@ -166,8 +148,18 @@ export default {
       background: transparent;
 
       &:hover {
+        + .card-options {
+          display: block;
+        }
+      }
+
+      &:hover {
         svg {
           fill: var(--controls-bg-color-hover);
+        }
+
+        .card-options {
+          display: block;
         }
       }
 
@@ -182,13 +174,18 @@ export default {
 
     .card-options {
       width: 170px;
+      display: none;
       position: absolute;
       right: 10px;
-      top: 100px;
+      top: 97px;
       list-style-type: none;
       background-color: var(--widget-bg-color);
       box-shadow: 0 0 3px 1px #dadee7;
       transform: translateY(-50%);
+
+      &:hover {
+        display: block;
+      }
 
       .btn-remove-card {
         width: 100%;
