@@ -7,22 +7,23 @@
       @click="navToggle"
       class="btn-nav-toggle"
       :class="navState"
+      aria-label="Navigation toggle"
     >
-      <svg>
+      <svg aria-hidden="true">
         <rect id="rect-1" width="100%" height="20%" y="0%"/>
         <rect id="rect-2" width="100%" height="20%" y="40%"/>
         <rect id="rect-3" width="100%" height="20%" y="80%"/>
       </svg>
     </button>
-    <button class="btn-messages">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+    <button class="btn-messages" aria-label="Messages">
+      <svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
         <path d="M49.5 5.5c3.038 0 5.5 2.462 5.5 5.5v0 33c0 3.038-2.462 5.5-5.5 5.5v0h-44c-3.038 0-5.5-2.462-5.5-5.5v0-33c0-3.025 2.475-5.5 5.5-5.5h44zM37.483 30.525l17.517 13.475v-5.5l-14.080-10.725 14.080-11.275v-5.5l-27.5 22-27.5-22v5.5l14.080 11.275-14.080 10.725v5.5l17.518-13.475 9.982 7.975 9.983-7.975z">
         </path>
       </svg>
       <span class="counter">3</span>
     </button>
-    <button class="btn-notifications">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+    <button class="btn-notifications" aria-label="Notifications">
+      <svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
         <path d="M46.429 43.447v3.137h-37.857v-3.137c0 0-0.81-1.734 3.584-5.894 4.39-4.158 3.812-14.905 3.812-22.184s10.223-7.434 10.223-7.434h0.351c0 0.003 0-0.050 0-1.182 0-0.727-2.441-3.36-2.441-3.36l-0.036-1.593h6.892l-0.046 1.653c0 0-2.645 2.631-2.645 3.407 0 0.749 0 1 0 1.074h0.545c0 0 10.223 0.155 10.223 7.434s-0.577 18.028 3.814 22.187 3.582 5.892 3.582 5.892zM31.818 48.245c0 2.38-1.928 4.955-4.307 4.955s-4.307-2.575-4.307-4.955c0 0.053 8.614-0.055 8.614 0z">
         </path>
       </svg>
@@ -35,6 +36,7 @@
       }"
       class="btn-user-settings"
       :class="userSettingsMenuState"
+      aria-label="User settings"
     >
       <img src="@/assets/img/header/default-user-photo.png" alt="Person" class="user-photo">
       <ul

@@ -11,8 +11,12 @@
       <p class="message-text">{{ messageText }}</p>
       <ul class="controls">
         <li>
-          <button @click="replyToMessage(messageData.userId)" class="btn btn-reply">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+          <button
+            @click="replyToMessage(messageData.userId)"
+            class="btn btn-reply"
+            aria-label="Reply to message"
+          >
+            <svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
               <path d="M52.25 45.884c0 0-6.119-26.763-30.25-26.763v-10.956l-19.25 18.076 19.25 18.397v-11.982c13.098-0.003 23.419 1.158 30.25 13.227z"></path>
             </svg>
           </button>

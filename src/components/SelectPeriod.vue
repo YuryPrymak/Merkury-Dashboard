@@ -8,8 +8,9 @@
         @click="listToggle"
         ref="listToggle"
         class="btn-list-toggle"
+        aria-label="Show periods"
       >
-        <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+        <svg aria-hidden="true" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
           <path d="M16.973 19.658l10.527 10.527 10.527-10.527 3.223 3.223-13.75 13.75-13.75-13.75z"></path>
         </svg>
       </button>
